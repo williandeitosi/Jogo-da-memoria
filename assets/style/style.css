@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Righteous', sans-serif;
+    box-sizing: border-box;
 }
 
 
@@ -9,11 +10,17 @@
 .card{
     width: 150px;
     height: 150px;
+    position: relative;
+
+    transform-style: preserve-3d;
+    transition: transform 1s;
 }
 
 .card_back, .card_front{
     width: 100%;
     height: 100%;
+
+    position:absolute;
 
     display: flex;
     justify-content: center;
@@ -21,15 +28,49 @@
 
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.45);
+    backface-visibility: hidden;
+}
+
+.flip{
+    transform: rotateY(180deg);
 }
 
 .card_front{
     background-color: #101c2c;
+
+    transform: rotateY(180deg);
 }
 
 .card_back{
     background-color: #715c95;
     color: #101c2c;
     font-size: 30px;
+
+    /* display: none; */
+
+}
+
+
+.gameOver{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    font-size: 50px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#restart{
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    background-color: #715c95;
 }
 
